@@ -2,24 +2,43 @@
 #define DIALOG_H
 
 #include <QDialog>
+#include <QtNetwork/QTcpSocket>
+#include <QtNetwork/QHostAddress>
+#include <QMessageBox>
+class MyClient;
 
 namespace Ui {
-class Dialog;
+	class Dialog;
 }
 
 class Dialog : public QDialog
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    explicit Dialog(QWidget *parent = 0);
-    ~Dialog();
+	explicit Dialog(QWidget* parent = 0);
+	~Dialog();
 
 private slots:
-    void on_pushButton_clicked();
+	void onSokConnected();
+	void onSokDisconnected();
+	void onSokReadyRead();
+	void onSokDisplayError(QAbstractSocket::SocketError socketError);
+
+	void on_pbConnect_clicked();
+	void on_pbDisconnect_clicked();
+	void on_cbToAll_clicked();
+	void on_pbSend_clicked();
+
+    void on_pbSendMsg_clicked();
 
 private:
-    Ui::Dialog *ui;
+	Ui::Dialog* ui;
+	QTcpSocket* _sok;
+	quint16 _blockSize;
+	QString _name;
+	void AddToLog(QString text, QColor color = Qt::black);
+
 };
 
 #endif // DIALOG_H
