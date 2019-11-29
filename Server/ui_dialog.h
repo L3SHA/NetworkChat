@@ -136,7 +136,7 @@ public:
 
     void retranslateUi(QDialog *Dialog)
     {
-        Dialog->setWindowTitle(QApplication::translate("Dialog", "Lab2 server", 0));
+        Dialog->setWindowTitle(QApplication::translate("Dialog", "Chat server", 0));
         pbStartStop->setText(QApplication::translate("Dialog", "Stop server", 0));
         leHost->setText(QApplication::translate("Dialog", "127.0.0.1", 0));
         lePort->setText(QApplication::translate("Dialog", "1234", 0));
