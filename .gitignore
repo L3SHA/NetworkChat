@@ -1,3 +1,7 @@
 Makefile
+Makefile.Debug
+Makefile.Release
+Chat_client.pro.user
+Chat_server.pro.user
 /debug
 /release
